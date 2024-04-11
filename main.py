@@ -1,34 +1,36 @@
 # ------------ imports ------------
 import os
 from charactor import Hero, Enemy
-from weapon import Iron_Sword,Short_Bow,Silver_Dagger,Crossbow
+from weapon import Iron_Sword,fists
 
 # ------------ setup ------------
 
 
 hero = Hero(name="Hero", health=100)
 hero.equip(Iron_Sword)
-enemy = Enemy(name="Enemy", health=100, weapon=Crossbow)
+enemy = Enemy(name="Enemy", health=100, weapon=fists)
 
-def main():
-    with open('data.txt', '+a') as f:
+def main() -> None:
+    try:
         while True:
             os.system("cls")
             hero.attack(enemy)
             enemy.attack(hero)
             print(hero.health, enemy.health)
-            f.write(f'{hero.health}  {enemy.health} \n')
             if enemy.health == 0:
                 print("You  Won")
                 input(">")
-                f.write("round end you won \n")
                 break
             if hero.health == 0:
                 print("You  Lost")
                 input(">")
-                f.write("round end you lost \n ")
                 break
-            input(">")
+            
+            r = input("press 1 to change weapon or press any key continue : ")
+            if r == '1':
+                hero.switch_weapon()
+    except Exception as err:
+        print(err)
 
 
 if __name__ == '__main__':

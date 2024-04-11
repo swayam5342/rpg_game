@@ -1,4 +1,4 @@
-'''# ------------ imports ------------
+# ------------ imports ------------
 import os
 
 # ------------ setup ------------
@@ -24,10 +24,10 @@ class HealthBar:
                     }
 
     def __init__(self,
-                 entity,
-                 length: int = 20,
-                 is_colored: bool = True,
-                 color: str = "") -> None:
+                entity,
+                length: int = 20,
+                is_colored: bool = True,
+                color: str = "") -> None:
         self.entity = entity
         self.length = length
         self.max_value = entity.health_max
@@ -44,11 +44,8 @@ class HealthBar:
         lost_bars = self.length - remaining_bars
         print(f"{self.entity.name}'s HEALTH: {self.entity.health}/{self.entity.health_max}")
         print(f"{self.barrier}"
-              f"{self.color if self.is_colored else ''}"
-              f"{remaining_bars * self.symbol_remaining}"
-              f"{lost_bars * self.symbol_lost}"
-              f"{self.colors['default'] if self.is_colored else ''}"
-              f"{self.barrier}")
-              
-              
-'''
+            f"{self.color if self.is_colored else ''}"
+            f"{remaining_bars * self.symbol_remaining}"
+            f"{lost_bars * self.symbol_lost}"
+            f"{self.colors['default'] if self.is_colored else ''}"
+            f"{self.barrier}")
