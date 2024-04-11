@@ -28,6 +28,7 @@ def main():
                 input(">")
                 f.write("round end you lost \n ")
                 break
+            input(">")
 
 
 if __name__ == '__main__':
