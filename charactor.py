@@ -1,5 +1,5 @@
 from healthbar import HealthBar
-from weapon import Weapon,fists ,Iron_Sword ,Steel_Axe ,Silver_Dagger ,Short_Bow ,Longbow,Crossbow ,Magic_Staff ,Fire_Wand ,Ice_Staff,Thunder_Rod
+from weapon import Weapon ,fists ,Iron_Sword ,Steel_Axe ,Silver_Dagger ,Short_Bow ,Longbow,Crossbow ,Magic_Staff ,Fire_Wand ,Ice_Staff,Thunder_Rod
 
 class Character:
     def __init__(self, name : str, health : int,color : str) -> None:
@@ -13,7 +13,7 @@ class Character:
         self.damage = self.weapon.damgae()
         target.health -= self.damage
         target.health = max(target.health, 0)
-        print(f"{self.name} dealt {self.weapon.damage} damage to "
+        print(f"{self.name} dealt {self.damage} damage to "
             f"{target.name} with {self.weapon.name}")
 
 
@@ -67,7 +67,7 @@ class Hero(Character):
     def __init__(self,
                 name: str,
                 health: int,
-                color = "green"
+                color : str = "green"
                 ) -> None:
         super().__init__(name=name, health=health,color=color)
         self.default_weapon : Weapon = self.weapon
@@ -76,8 +76,6 @@ class Enemy(Character):
     def __init__(self,
                 name: str,
                 health: int,
-                weapon: Weapon,
-                color = "red"
+                color : str = "red"
                 ) -> None:
         super().__init__(name=name, health=health, color=color)
-        self.weapon :Weapon  = weapon
