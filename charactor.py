@@ -1,4 +1,4 @@
-#from healthbar import HealthBar
+from healthbar import HealthBar
 from weapon import Weapon,fists ,Iron_Sword ,Steel_Axe ,Silver_Dagger ,Short_Bow ,Longbow,Crossbow ,Magic_Staff ,Fire_Wand ,Ice_Staff,Thunder_Rod
 
 class Character:
@@ -65,14 +65,13 @@ class Hero(Character):
                 health: int
                 ) -> None:
         super().__init__(name=name, health=health)
-        self.default_weapon = self.weapon
+        self.default_weapon : Weapon = self.weapon
 
 class Enemy(Character):
     def __init__(self,
                 name: str,
                 health: int,
-                weapon,
+                weapon: Weapon,
                 ) -> None:
         super().__init__(name=name, health=health)
-        self.weapon = weapon
-
+        self.weapon :Weapon  = weapon

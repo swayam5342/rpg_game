@@ -2,6 +2,7 @@
 import os
 from charactor import Hero, Enemy
 from weapon import Iron_Sword,fists
+from healthbar import HealthBar
 
 # ------------ setup ------------
 
@@ -9,14 +10,19 @@ from weapon import Iron_Sword,fists
 hero = Hero(name="Hero", health=100)
 hero.equip(Iron_Sword)
 enemy = Enemy(name="Enemy", health=100, weapon=fists)
-
+hero_health_bar = HealthBar(hero, length=20, is_colored=True, color="green")
+enemy_health_bar = HealthBar(enemy, length=20, is_colored=True, color="red")
 def main() -> None:
     try:
-        while True:
+        while  hero.health >= 0 and enemy.health >= 0:
             os.system("cls")
             hero.attack(enemy)
             enemy.attack(hero)
             print(hero.health, enemy.health)
+            hero_health_bar.update()
+            enemy_health_bar.update()
+            hero_health_bar.draw()
+            enemy_health_bar.draw()
             if enemy.health == 0:
                 print("You  Won")
                 input(">")
