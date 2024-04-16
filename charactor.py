@@ -9,12 +9,13 @@ class Character:
         self.weapon : Weapon = fists
         self.color = color
 
-    def attack(self, target) -> None:
-        self.damage = self.weapon.damgae()
-        target.health -= self.damage
-        target.health = max(target.health, 0)
-        print(f"{self.name} dealt {self.damage} damage to "
-            f"{target.name} with {self.weapon.name}")
+    def attack(self, targets: list) -> None:
+        total_damage = self.weapon.damgae()
+        self.damage = total_damage // len(targets)  # Divide damage among targets
+        for target in targets:
+            target.health -= self.damage
+            target.health = max(target.health, 0)
+            print(f"{self.name} dealt {self.damage} damage to {target.name} with {self.weapon.name}")
 
 
     def equip(self, weapon : Weapon) -> None:

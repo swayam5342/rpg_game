@@ -29,7 +29,7 @@ class Weapon:
 
 # ------------ object creation -----------
 
-fists = Weapon(name="Fists",weapon_type="blunt",damage=5,DamageWeights={0:1},value=0)
+fists = Weapon(name="Fists",weapon_type="blunt",damage=5,DamageWeights={0:0.7,1:0.5,2:0.2,3:0.1},value=0)
 Quarterstaff = Weapon(name='Quarterstaff',	weapon_type='Melee (Two-Handed)',damage=11,DamageWeights={9: 0.4, 10: 0.4, 11: 0.2}, value=	100)
 Flail=Weapon(name='Flail',weapon_type='Melee (Two-Handed)',damage=10,DamageWeights={8: 0.4, 9: 0.4, 10: 0.2},value=120)
 Trident=Weapon(name='Trident',weapon_type='Melee (Two-Handed)',damage=9,DamageWeights={7: 0.4, 8: 0.4, 9: 0.2},value=	80)

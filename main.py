@@ -13,11 +13,11 @@ def main() -> None:
     try:
         while  hero.health >= 0 and enemy.health >= 0:
             os.system("cls")
-            hero.attack(enemy)
-            enemy.attack(hero)
+            hero.attack([enemy])
+            enemy.attack([hero])
             print(hero.health, enemy.health)
             hero.show_health()
-            enemy.show_health()
+            enemy.show_health()  
             if enemy.health == 0:
                 print("You  Won")
                 input(">")
